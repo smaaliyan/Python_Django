@@ -12,6 +12,7 @@
 
     <p>{{notes.text}}</p>
     <a href="{% url 'notes.update' notes.pk %}" class="btn btn-secondary">Edit</a>
+    <a href="{% url 'notes.delete' notes.pk %}" class="btn btn-secondary">Delete</a>
 
 </body>
 </html>

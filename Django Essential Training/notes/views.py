@@ -3,7 +3,13 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView
 from .models import Notes
 from django.urls import reverse_lazy
 from .forms import NotesForm
+from django.views.generic.edit import DeleteView
 
+
+class NotesDeleteView(DeleteView):
+    model = Notes
+    success_url = reverse_lazy('notes_list')
+    template_name = 'notes/notes_delete.html'
 
 class NotesUpdateView(UpdateView):
     model = Notes
