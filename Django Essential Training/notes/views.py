@@ -1,9 +1,14 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView, DetailView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView
 from .models import Notes
 from django.urls import reverse_lazy
 from .forms import NotesForm
 
+
+class NotesUpdateView(UpdateView):
+    model = Notes
+    success_url = reverse_lazy('notes_list')
+    form_class = NotesForm
 
 class NotesCreateView(CreateView):
     model = Notes
@@ -19,6 +24,7 @@ class NotesListView(ListView):
 class NotesDetailView(DetailView):
     model = Notes
     context_object_name = 'notes'
+    template_name = 'notes/notes_details.html'
 
 # def list(request):
 #     all_notes = Notes.objects.all()

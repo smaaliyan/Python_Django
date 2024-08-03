@@ -8,8 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{note.title}}</h1>
+    <h1>{{notes.title}}</h1>
 
-    <p>{{note.text}}</p>
+    <p>{{notes.text}}</p>
+    <a href="{% url 'notes.update' notes.pk %}" class="btn btn-secondary">Edit</a>
+
 </body>
 </html>
